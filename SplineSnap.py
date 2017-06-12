@@ -57,9 +57,13 @@ for vert in selected_verts:
 
     print('all calculated roots:\t\t',AllRoots)
     
-    t=AllRoots[AllRoots.imag==0].real[0]
+    t=AllRoots[AllRoots.imag==0].real
     
-    t=0.5
+    if(len(t) >1):
+        t = [x.real for x in t if all( [x>=0,x<=1])]
+    
+    t=t[0]
+
     print('Calculated parameter t: ',t)
     
     Coord=P1*t**3+P2*t**2+P3*t**1+Pos_1
