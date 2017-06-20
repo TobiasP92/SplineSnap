@@ -42,7 +42,7 @@ print('Handle Left 2:\t\t',HL_2)
 
 #CheckPos=np.array((0.0,-1.0,0.0))
 
-P1=(3*HR_1-Pos_1+Pos_2-3*HL_2)
+P1=(3*HR_1-Pos_1+Pos_2-3*HL_2)  
 P2=(3*Pos_1-6*HR_1+3*HL_2)
 P3=(3*HR_1-3*Pos_1)
 
@@ -59,8 +59,11 @@ for vert in selected_verts:
     
     t=AllRoots[AllRoots.imag==0].real
     
-    if(len(t) >1):
-        t = [x.real for x in t if all( [x>=0,x<=1])]
+    t = [x.real for x in t if all( [x>=0,x<=1])]
+    
+    if(len(t)==0):
+        print('no root in range of spline')
+        continue
     
     t=t[0]
 
