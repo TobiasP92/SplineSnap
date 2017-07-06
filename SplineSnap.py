@@ -61,7 +61,7 @@ for vert in selected_verts:
     
     t = [x.real for x in t if all( [x>=0,x<=1])]
     
-    if(len(t)==0):
+    if(len(t)!=1):
         print('no root in range of spline')
         continue
     
